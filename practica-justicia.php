@@ -56,18 +56,3 @@ function controladorListarActivos(Peticion $peticion, Smarty $smarty, PDO $db){
     $smarty->display('listaractivos.tpl');
 }
 
-/**
-* @internal
-* Esta función nos permite eliminar un activo
-* @param Peticion $peticion
-* @param PDO $db
-* @return int 
-*/
-function controladorBorrarActivo(Peticion $peticion, Smarty $smarty, PDO $db){
-    if($peticion->isPost()){
-        $id=$peticion->getInt('id');
-        $resultados=Activo::borrar($db, $id);
-        return $resultado->rowCount();
-    }
-}
-
